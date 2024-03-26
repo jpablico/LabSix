@@ -22,10 +22,10 @@ public class Character {
 		return damage;
 	}
 
-	public int heal() {
-		int healthGained = BASE_HEAL + (2 * speed);
-		currentHealth += healthGained;
-		return healthGained;
+	public int healSpell() {
+		int healthRestored = BASE_HEAL + (2 * speed);
+		currentHealth += healthRestored;
+		return healthRestored;
 	}
 
 	public void takeDamage(int damage) {
