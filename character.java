@@ -16,7 +16,7 @@ public class Character {
 	public int attack(Character opponent) {
 		int damage = BASE_ATTACK + strength;
 		if (Math.random() < 0.1) {
-			damage += 5; // Critical hit
+			damage += 5;
 		}
 		opponent.takeDamage(damage);
 		return damage;
