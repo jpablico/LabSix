@@ -13,7 +13,7 @@ public class Character {
 	private int currentHealth;
 	private final int strength;
 	private final int speed;
-	private static final int BASE_ATTACK = 10;
+	public static final int BASE_ATTACK = 10;
 	private static final int BASE_HEAL = 5;
 
 	public Character(String name, int strength, int speed) {
