@@ -1,6 +1,13 @@
+/**
+ * BattleSimulator class that simulates a battle when given two Characters
+ * Muhammad Noor
+ * COSC-1437.200
+ * Created on Mar. 28th, 2024
+ */
+
 public class BattleSimulator {
 
-    public String attackOrHeal() {
+    private String attackOrHeal() {
         int rand = (int) (Math.random() * 10) + 1;
         if (rand > 7) {
             return "heal";
@@ -9,7 +16,7 @@ public class BattleSimulator {
         }
     }
 
-    public String displayStats(Character character) {
+    private String displayStats(Character character) {
         return character.getName() + " health remaining: "  + character.getCurrentHealth();
     }
 
