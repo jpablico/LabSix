@@ -1,3 +1,10 @@
+/**
+ * Character class constructs a character object with a name, strength, and speed. It also has methods to attack, heal, and take damage. Used in BattleSimulator.java
+ * Josh Pablico
+ * COSC-1437.200
+ * Created on Mar. 28th, 2024
+ */
+
 package LabSix;
 
 public class Character {
