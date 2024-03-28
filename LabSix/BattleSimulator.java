@@ -1,3 +1,4 @@
+package LabSix;
 import java.util.Random;
 
 public class BattleSimulator {
@@ -52,6 +53,13 @@ public class BattleSimulator {
             System.out.println("Sadly, the dual has left them both dead.");
         }
 
+    }
+
+    public static void main(String[] args) throws Exception {
+        Character c1 = new Character("Gandalf", 10, 5);
+        Character c2 = new Character("Sauron", 15, 3);
+        BattleSimulator battleSimulator = new BattleSimulator();
+        battleSimulator.battle(c1, c2);
     }
 
 }

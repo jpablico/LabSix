@@ -1,4 +1,7 @@
+package LabSix;
+
 public class Character {
+
 	private final String name;
 	private int currentHealth;
 	private final int strength;
