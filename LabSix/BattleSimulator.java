@@ -5,6 +5,8 @@
  * Created on Mar. 28th, 2024
  */
 
+package LabSix;
+
 public class BattleSimulator {
 
     private String attackOrHeal() {
@@ -71,6 +73,14 @@ public class BattleSimulator {
             System.out.println("Sadly, the dual has left them both dead.");
         }
 
+    }
+
+    public static void main(String[] args) {
+        Character characterOne = new Character("Darkspire", 3,2);
+        Character characterTwo = new Character("Venomstrike", 2,3);
+        BattleSimulator battleSimulator  = new BattleSimulator();
+
+        battleSimulator.battle(characterOne, characterTwo);
     }
 
 }
