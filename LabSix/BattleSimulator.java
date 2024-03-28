@@ -1,11 +1,7 @@
-package LabSix;
-import java.util.Random;
-
 public class BattleSimulator {
 
     public String attackOrHeal() {
-        Random random = new Random();
-        int rand = random.nextInt(10) + 1;
+        int rand = (int) (Math.random() * 10) + 1;
         if (rand > 7) {
             return "heal";
         } else {
@@ -25,13 +21,27 @@ public class BattleSimulator {
         while(c1.getCurrentHealth() > 0 && c2.getCurrentHealth() > 0) {
 
             if (attackOrHeal().equalsIgnoreCase("attack")) {
-                System.out.println(c1.getName()+ " chooses to attack and inflicts " + c1.attack(c2) + " damage");
+
+                int damage = c1.attack(c2);
+                if (damage > (Character.BASE_ATTACK + c1.getStrength())) {
+                    System.out.println("**Critical Hit!** " + c1.getName()+ " chooses to attack and inflicts " + damage + " damage");
+                } else {
+                    System.out.println(c1.getName()+ " chooses to attack and inflicts " + damage + " damage");
+                }
+
             } else {
                 System.out.println(c1.getName() + " chooses to heal. They gained " + c1.healSpell() + " health");
             }
 
             if (attackOrHeal().equalsIgnoreCase("attack")) {
-                System.out.println(c2.getName() + " chooses to attack and inflicts " + c2.attack(c1) + " damage");
+
+                int damage = c2.attack(c1);
+                if (damage > (Character.BASE_ATTACK + c2.getStrength())) {
+                    System.out.println("**Critical Hit!** " + c2.getName()+ " chooses to attack and inflicts " + damage + " damage");
+                } else {
+                    System.out.println(c2.getName()+ " chooses to attack and inflicts " + damage + " damage");
+                }
+
             } else {
                 System.out.println(c2.getName() + " chooses to heal. They gained " + c2.healSpell() + " health");
             }
@@ -45,21 +55,15 @@ public class BattleSimulator {
 
         System.out.println("********************************");
         System.out.println("This battle has ended!");
-        if (c1.getCurrentHealth() > c2.getCurrentHealth()) {
+
+        if (c1.getCurrentHealth() > c2.getCurrentHealth() && c1.getCurrentHealth() > 0) {
             System.out.println(c1.getName() + " is your WINNER!");
-        } else if (c2.getCurrentHealth() > c1.getCurrentHealth()) {
+        } else if (c2.getCurrentHealth() > c1.getCurrentHealth() && c2.getCurrentHealth() > 0) {
             System.out.println(c2.getName() + " is your WINNER!");
         } else {
             System.out.println("Sadly, the dual has left them both dead.");
         }
 
-    }
-
-    public static void main(String[] args) throws Exception {
-        Character c1 = new Character("Gandalf", 10, 5);
-        Character c2 = new Character("Sauron", 15, 3);
-        BattleSimulator battleSimulator = new BattleSimulator();
-        battleSimulator.battle(c1, c2);
     }
 
 }
